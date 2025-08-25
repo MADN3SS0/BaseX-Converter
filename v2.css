@@ -1,0 +1,169 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #111, #444);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* <- garante que fica em coluna */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  max-width: 600px;
+  line-height: 1.4;
+}
+footer strong {
+  color: #fff;
+}
+
+
+.container {
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 600px;
+  animation: fadeIn 0.6s ease;
+  color: #f1f1f1;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.upload-label {
+  display: block;
+  background: #333;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.upload-label:hover {
+  background: #555;
+  transform: scale(1.03);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 200px;
+  margin: 10px auto;
+  border-radius: 12px;
+  border: 2px solid #555;
+  object-fit: contain;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid #555;
+  font-size: 15px;
+  outline: none;
+  background: #2a2a2a;
+  color: #eee;
+  transition: border 0.3s, background 0.3s;
+}
+
+select:focus {
+  border: 1px solid #888;
+  background: #333;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  color: #fff;
+}
+
+#convertBtn {
+  background: #444;
+}
+
+#convertBtn:hover {
+  background: #666;
+  transform: translateY(-2px);
+}
+
+#copyBtn {
+  background: #222;
+}
+
+#copyBtn:hover {
+  background: #444;
+  transform: translateY(-2px);
+}
+
+textarea {
+  width: 100%;
+  height: 180px;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #555;
+  font-size: 13px;
+  resize: vertical;
+  outline: none;
+  background: #2a2a2a;
+  color: #eee;
+  transition: border 0.3s, background 0.3s;
+}
+
+textarea:focus {
+  border: 1px solid #888;
+  background: #333;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+}
