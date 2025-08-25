@@ -14,13 +14,13 @@ fileInput.addEventListener('change', (event) => {
     reader.onload = e => {
       preview.src = e.target.result;
       preview.style.display = 'block';
-      fileData = e.target.result.split(',')[1]; // apenas os dados da imagem
+      fileData = e.target.result.split(',')[1]; // apenas dados da imagem
     };
     reader.readAsDataURL(file);
   }
 });
 
-// Função para converter para Base85 (Ascii85 simples)
+// Função para converter para Base85
 function toBase85(input) {
   const textEncoder = new TextEncoder();
   const bytes = textEncoder.encode(atob(input));
@@ -43,7 +43,7 @@ function toBase85(input) {
 // Converter
 convertBtn.addEventListener('click', () => {
   if (!fileData) {
-    alert("Selecione uma imagem primeiro!");
+    alert(translations[currentLang].alertNoFile);
     return;
   }
 
@@ -58,5 +58,62 @@ convertBtn.addEventListener('click', () => {
 copyBtn.addEventListener('click', () => {
   output.select();
   document.execCommand("copy");
-  alert("Copiado para a área de transferência!");
+  alert(translations[currentLang].alertCopied);
 });
+
+// =====================
+// Language Selector
+// =====================
+const languageSelect = document.getElementById('languageSelect');
+
+const translations = {
+  pt: {
+    chooseFile: "📂 Escolher Imagem",
+    convert: "🔄 Converter",
+    copy: "📋 Copiar",
+    outputPlaceholder: "O resultado aparecerá aqui...",
+    alertNoFile: "Selecione uma imagem primeiro!",
+    alertCopied: "Copiado para a área de transferência!"
+  },
+  en: {
+    chooseFile: "📂 Choose Image",
+    convert: "🔄 Convert",
+    copy: "📋 Copy",
+    outputPlaceholder: "The result will appear here...",
+    alertNoFile: "Please select an image first!",
+    alertCopied: "Copied to clipboard!"
+  },
+  de: {
+    chooseFile: "📂 Bild auswählen",
+    convert: "🔄 Konvertieren",
+    copy: "📋 Kopieren",
+    outputPlaceholder: "Das Ergebnis wird hier angezeigt...",
+    alertNoFile: "Bitte zuerst ein Bild auswählen!",
+    alertCopied: "In die Zwischenablage kopiert!"
+  },
+  fr: {
+    chooseFile: "📂 Choisir l'image",
+    convert: "🔄 Convertir",
+    copy: "📋 Copier",
+    outputPlaceholder: "Le résultat apparaîtra ici...",
+    alertNoFile: "Veuillez d'abord sélectionner une image !",
+    alertCopied: "Copié dans le presse-papiers !"
+  }
+};
+
+let currentLang = 'pt';
+
+function updateLanguage(lang) {
+  currentLang = lang;
+  document.querySelector('.upload-label').textContent = translations[lang].chooseFile;
+  document.getElementById('convertBtn').textContent = translations[lang].convert;
+  document.getElementById('copyBtn').textContent = translations[lang].copy;
+  document.getElementById('output').placeholder = translations[lang].outputPlaceholder;
+}
+
+languageSelect.addEventListener('change', (e) => {
+  updateLanguage(e.target.value);
+});
+
+// Inicializa com Português
+updateLanguage('pt');
