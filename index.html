@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Imagem</title>
+  <link rel="stylesheet" href="v2.css">
+</head>
+<body>
+
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <select id="languageSelect">
+      <option value="pt">🇵🇹 Português</option>
+      <option value="en">🇬🇧 English</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="fr">🇫🇷 Français</option>
+    </select>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <h1>Conversor de Imagem</h1>
+    
+    <label class="upload-label" for="fileInput">📂 Escolher Imagem</label>
+    <input type="file" id="fileInput" accept="image/*">
+    
+    <img id="preview" alt="Preview" style="display:none;">
+    
+    <select id="encodeType">
+      <option value="base64">Base64</option>
+      <option value="base85">Base85</option>
+    </select>
+    
+    <div class="buttons">
+      <button id="convertBtn">🔄 Converter</button>
+      <button id="copyBtn">📋 Copiar</button>
+    </div>
+    
+    <textarea id="output" placeholder="O resultado aparecerá aqui..."></textarea>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 madn3ss. Todos os direitos reservados.</p>
+    <p>Pode testar o jogo no seu computador, <strong>mas não pode copiar, modificar ou distribuir o código sem permissão.</strong></p>
+  </footer>
+
+  <script src="v2.js"></script>
+</body>
+</html>
