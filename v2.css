@@ -10,24 +10,12 @@ body {
   background: linear-gradient(135deg, #111, #444);
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* <- garante que fica em coluna */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  color: #eee;
 }
-
-footer {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 13px;
-  color: #aaa;
-  max-width: 600px;
-  line-height: 1.4;
-}
-footer strong {
-  color: #fff;
-}
-
 
 .container {
   background: #1e1e1e;
@@ -37,7 +25,6 @@ footer strong {
   width: 100%;
   max-width: 600px;
   animation: fadeIn 0.6s ease;
-  color: #f1f1f1;
 }
 
 h1 {
@@ -150,6 +137,35 @@ textarea {
 textarea:focus {
   border: 1px solid #888;
   background: #333;
+}
+
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.language-selector select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #2a2a2a;
+  color: #eee;
+  font-size: 14px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  max-width: 600px;
+  line-height: 1.4;
+}
+
+footer strong {
+  color: #fff;
 }
 
 /* Animação */
